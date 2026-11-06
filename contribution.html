@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Contribution</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #f4f5f7; color: #1f2328; margin: 0; }
+    main { max-width: 600px; margin: 0 auto; padding: 32px 16px; }
+    button { font: inherit; padding: 8px 16px; border-radius: 6px; border: 1px solid #2563eb; background: #2563eb; color: #fff; cursor: pointer; }
+    #contributor-student-id { margin: 16px 0; font-size: 1.1rem; font-weight: 600; min-height: 1.5em; }
+    a { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Team Contribution</h1>
+    <button type="button" id="load-contributor">Show Contributor</button>
+    <p id="contributor-student-id"></p>
+    <a href="index.html">Back to Task Manager</a>
+  </main>
+
+  <script>
+    document.getElementById('load-contributor').addEventListener('click', async () => {
+      const output = document.getElementById('contributor-student-id');
+      output.textContent = 'Loading...';
+      try {
+        const res = await fetch('contribution.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        output.textContent = 'Contributor Student ID: ' + data.contributorStudentId;
+      } catch (err) {
+        output.textContent = 'Error loading contribution.json: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
