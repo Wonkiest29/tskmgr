@@ -3,6 +3,7 @@
 Simple Task Manager built with HTML, CSS and JavaScript, using the Supabase REST API (PostgreSQL) and hosted on GitHub Pages.
 
 - **Student ID:** 71536
+- **Student ID 2:** 73705
 - **Live application:** https://wonkiest29.github.io/tskmgr/
 - **Repository:** https://github.com/Wonkiest29/tskmgr
 - **Contributor page:** https://wonkiest29.github.io/tskmgr/contribution.html
